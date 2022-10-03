@@ -14,4 +14,6 @@ public interface DepartmentService {
     Optional<DepartmentEntity> getDetail(Long id);
 
     void deleteById(Long id);
+
+    List<DepartmentEntity> findByDepartmentName(String departmentName);
 }

@@ -32,4 +32,9 @@ public class DepartmentServiceImpl implements DepartmentService {
     public void deleteById(Long id) {
         departmentRepository.deleteById(id);
     }
+
+    @Override
+    public List<DepartmentEntity> findByDepartmentName(String departmentName) {
+       return departmentRepository.findByDepartmentName(departmentName);
+    }
 }
