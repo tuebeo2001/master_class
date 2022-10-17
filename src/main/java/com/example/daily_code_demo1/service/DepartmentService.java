@@ -16,4 +16,6 @@ public interface DepartmentService {
     void deleteById(Long id);
 
     List<DepartmentEntity> findByDepartmentName(String departmentName);
+
+    DepartmentEntity updateDepartment(Long departmentId, DepartmentEntity department);
 }

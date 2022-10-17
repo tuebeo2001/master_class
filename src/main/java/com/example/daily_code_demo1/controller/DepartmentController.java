@@ -5,6 +5,7 @@ import com.example.daily_code_demo1.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +18,7 @@ public class DepartmentController {
     private DepartmentService service;
 
     @PostMapping()
-    public DepartmentEntity save(@RequestBody DepartmentEntity departmentEntity) {
+    public DepartmentEntity save(@Valid @RequestBody DepartmentEntity departmentEntity) {
         return service.save(departmentEntity);
     }
 
@@ -38,7 +39,12 @@ public class DepartmentController {
     }
 
     @GetMapping("/department/name/{name}")
-    public List<DepartmentEntity> getByName(@PathVariable("name") String departmentName){
+    public List<DepartmentEntity> getByName(@PathVariable("name") String departmentName) {
         return service.findByDepartmentName(departmentName);
+    }
+
+    @PutMapping("/{id}")
+    public DepartmentEntity updateDepartment(@PathVariable("id") Long departmentId, @RequestBody DepartmentEntity department) {
+        return service.updateDepartment(departmentId, department);
     }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface DepartmentRepository extends JpaRepository<DepartmentEntity, Long> {
-    public List<DepartmentEntity> findByDepartmentName(String departmentName);
+    public List<DepartmentEntity> findByDepartmentNameIgnoreCase(String departmentName);
 
 
 }
