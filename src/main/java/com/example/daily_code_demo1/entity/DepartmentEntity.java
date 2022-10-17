@@ -1,6 +1,8 @@
 package com.example.daily_code_demo1.entity;
 
 import jdk.jfr.Name;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,7 +16,9 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Builder
 public class DepartmentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

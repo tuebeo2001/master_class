@@ -1,6 +1,7 @@
 package com.example.daily_code_demo1.controller;
 
 import com.example.daily_code_demo1.entity.DepartmentEntity;
+import com.example.daily_code_demo1.error.DepartmentNotFoundException;
 import com.example.daily_code_demo1.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/{departmentId}")
-    public Optional<DepartmentEntity> getDetail(@PathVariable("departmentId") Long id) {
+    public DepartmentEntity getDetail(@PathVariable("departmentId") Long id) throws DepartmentNotFoundException {
         return service.getDetail(id);
     }
 
@@ -39,7 +40,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/department/name/{name}")
-    public List<DepartmentEntity> getByName(@PathVariable("name") String departmentName) {
+    public DepartmentEntity getByName(@PathVariable("name") String departmentName) {
         return service.findByDepartmentName(departmentName);
     }
 
